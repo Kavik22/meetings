@@ -1,0 +1,59 @@
+services:
+    nginx:
+        image: nginx:latest
+        volumes:
+            - ./:/var/www
+            - ./_docker/nginx/conf.d:/etc/nginx/conf.d
+        ports:
+            - 8876:80
+        depends_on:
+            - backend
+            - frontend
+        container_name: nginx
+
+    backend:
+        build:
+            context: .
+            dockerfile: _docker/backend/Dockerfile
+        volumes:
+            - ./backend:/var/www/backend
+        depends_on:
+            - db
+        container_name: backend
+        environment:
+            - FRONTEND_URL=http://localhost:3000
+            - TELEGRAM_TOKEN=
+            - TELEGRAM_CHAT_ID=-
+            - TELEGRAM_CHAT_TAG=
+            - VK_ACCESS_TOKEN=
+            - VK_USER_ACCESS_TOKEN=
+            - VK_GROUP_ID=
+
+
+    frontend:
+        build:
+            context: .
+            dockerfile: _docker/frontend/Dockerfile
+        volumes:
+            - ./frontend:/var/www/frontend
+            - ./frontend/.next:/var/www/frontend/.next
+            - /var/www/frontend/node_modules
+        ports:
+            - 3000:3000
+        container_name: frontend
+        environment:
+            - NEXT_PUBLIC_API_URL=http://nginx:80
+            - NEXT_PUBLIC_API_IMAGE=http://localhost:8876
+
+    db:
+        image: mysql:8.0
+        restart: always
+        volumes:
+            - ./tmp/db:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: meetings
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - 8101:3306
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+        container_name: db
