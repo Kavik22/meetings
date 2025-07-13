@@ -1,0 +1,151 @@
+.events-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    align-items: center;
+}
+
+.events-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+    z-index: 0;
+}
+
+.background-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: -1;
+}
+
+.background-images-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background-images-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-family: 'Permanent Marker', cursive;
+    color: rgb(255, 255, 255);
+    z-index: 1;
+}
+
+.events-info {
+    position: relative;
+    padding: 1rem 0;
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    backdrop-filter: blur(5px);
+}
+
+.events-info > p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Permanent Marker', cursive;
+    color: rgb(255, 255, 255);
+}
+
+.container {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.75rem;
+}
+
+.card {
+    display: block;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    max-height: 40vh;
+    aspect-ratio: 1;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
+    transform: rotate(var(--rotation, 0deg));
+}
+
+.card:hover {
+    transform: scale(1.05) rotate(var(--rotation, 0deg));
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 1);
+}
+
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.card-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    padding: 1.5rem;
+}
+
+.card-title {
+    display: block;
+    font-weight: bold;
+}
+
+.card-annotation {
+    display: block;
+    color: #D1D5DB;
+}
+
+.pin {
+    position: absolute;
+    top: -2%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    object-fit: none;
+}
+
+@media (max-width: 700px) {
+    .background-image {
+        display: none;
+    }
+
+    .card {
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .events-info {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+

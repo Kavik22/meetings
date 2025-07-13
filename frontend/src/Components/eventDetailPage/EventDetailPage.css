@@ -1,0 +1,247 @@
+@import "tailwindcss";
+
+.event-section {
+    background-color: #242526;
+    color: #fafafa;
+}
+
+.event-detail-container {
+    width: 60%;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.event-content {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .event-detail-container {
+        width: 90%;
+    }
+        
+    .event-content {
+        gap: 0;
+        flex-direction: column;
+    }
+
+    .options-container {
+        flex-direction: column;
+    }
+}
+
+.event-card {
+    flex: 1;
+    width: 100%;
+}
+
+.event-info {
+    
+    width: 100%;
+}
+
+.event-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.event-title {
+    padding-top: 1rem;
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.event-description {
+    color: #fafafa;
+    margin-bottom: 1rem;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fafafa;
+}
+
+.event-form > p{
+    display: block;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.event-form {
+    flex: 1;
+    width: 100%;
+}
+
+.event-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.event-form input[type="text"],
+.event-form input[type="email"] {
+    color: #fafafa;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+}
+
+.event-form input[type="text"]:focus,
+.event-form input[type="email"]:focus {
+    outline: none;
+    border-color: transparent;
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.event-form .found_out_about_us {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.event-form .found_out_about_us label {
+    display: block;
+    color: #fafafa;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.event-form .found_out_about_us > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-form .aprove {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.event-form .aprove input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.25rem;
+    color: #2563eb;
+}
+
+.event-form .aprove input[type="checkbox"]:focus {
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.event-form .aprove label {
+    font-size: 0.875rem;
+    color: #9b9ea3;
+}
+
+.event-form button[type="submit"] {
+    width: 100%;
+    background-color: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+}
+
+.event-form button[type="submit"]:hover {
+    background-color: #1d4ed8;
+}
+
+.event-form button[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #3b82f6, 0 0 0 4px #93c5fd;
+}
+
+.event-form button[type="submit"]:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.event-form input[type="text"][name="other_source"] {
+    margin-top: 0.5rem;
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.event-form input[type="text"][name="other_source"].fade-out {
+    animation: fadeOut 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.back-link {
+    display: block;
+    margin: 1rem 0;
+    color: #2563eb;
+    text-align: right;
+}
+
+.back-link:hover {
+    color: #1e40af;
+}
+
+.options-container {
+    display: flex;
+}
+
+.options-container .option {
+    padding: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+}
+
+.options-container .option:hover {
+    background-color: #94969a;
+}
+
+.options-container .option:focus {
+    outline: none;
+}
+
+.options-container .option.selected {
+    background-color: #2563eb;
+}
+
